@@ -20,8 +20,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func button(_ sender: Any) {
-        label.text = "Hello!"
-        button.setTitle("Button", for: .normal)
+//        label.text = "Hello!"
+//        button.setTitle("Button", for: .normal)
+        
+        performSegue(withIdentifier: "second", sender: nil)
+    }
+    
+    @IBAction func unwindToFist(segue: UIStoryboardSegue) {
     }
 
 }
