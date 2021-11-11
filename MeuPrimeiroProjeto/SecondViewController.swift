@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
+
 class SecondViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,8 +22,14 @@ class SecondViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "thirdScreen" {
             let controller = segue.destination as? ThirdViewController
+            controller?.delegate = self
             controller?.modalPresentationStyle = .fullScreen
-//            controller?.receivedValue = "Hello!"
         }
+    }
+}
+
+extension SecondViewController: ThirdViewControllerDelegate {
+    func notification(msg: String) {
+        print(msg)
     }
 }

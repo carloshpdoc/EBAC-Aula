@@ -7,18 +7,20 @@
 
 import UIKit
 
+protocol ThirdViewControllerDelegate: AnyObject {
+    func notification(msg: String)
+}
+
 class ThirdViewController: UIViewController {
 
     @IBOutlet weak var fontSlider: UISlider!
     @IBOutlet weak var alphaSlider: UISlider!
     @IBOutlet weak var label: UILabel!
-//    var receivedValue: String!
+    weak var delegate: ThirdViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        label.text = receivedValue
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func fontSize(_ sender: Any) {
@@ -26,6 +28,7 @@ class ThirdViewController: UIViewController {
     }
     
     @IBAction func alphaLabel(_ sender: Any) {
+        delegate?.notification(msg: "Cheguei na terceira ViewController")
         label.alpha = CGFloat(alphaSlider.value)
     }
     
